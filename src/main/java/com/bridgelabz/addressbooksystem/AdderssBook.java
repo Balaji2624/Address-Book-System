@@ -1,16 +1,56 @@
 package com.bridgelabz.addressbooksystem;
 
+import java.util.ArrayList;
+import java.util.Scanner;
+
+// AddressBook class to manage the list of contacts
 public class AdderssBook {
-    public static void main(String[] args)
-    {
+    private ArrayList<Contact> contactList = new ArrayList<>();
 
-                Contact contact1 = new Contact("John", "Doe", "123 Elm Street", "Springfield", "IL", "62701", "555-1234", "john.doe@example.com");
-                Contact contact2 = new Contact("Jane", "Smith", "456 Oak Street", "Metropolis", "NY", "10001", "555-5678", "jane.smith@example.com");
-                Contact contact3 = new Contact("Alice", "Johnson", "789 Pine Street", "Gotham", "NJ", "07001", "555-4321", "alice.johnson@example.com");
+    // Method to add a contact to the address book
+    public void addContact(Contact contact) {
+        contactList.add(contact);
+    }
 
-                contact1.displayContact();
-                contact2.displayContact();
-                contact3.displayContact();
+    // Method to display all contacts in the address book
+    public void displayContacts() {
+        for (Contact contact : contactList) {
+            contact.displayContact();
+        }
+    }
 
+    // Method to take user input and add a new contact
+    public void addContactFromInput() {
+        Scanner scanner = new Scanner(System.in);
+
+        System.out.println("Enter Contact Details:");
+        System.out.print("First Name: ");
+        String firstName = scanner.nextLine();
+
+        System.out.print("Last Name: ");
+        String lastName = scanner.nextLine();
+
+        System.out.print("Address: ");
+        String address = scanner.nextLine();
+
+        System.out.print("City: ");
+        String city = scanner.nextLine();
+
+        System.out.print("State: ");
+        String state = scanner.nextLine();
+
+        System.out.print("ZIP: ");
+        String zip = scanner.nextLine();
+
+        System.out.print("Phone Number: ");
+        String phoneNumber = scanner.nextLine();
+
+        System.out.print("Email: ");
+        String email = scanner.nextLine();
+
+        // Create a new contact object and add it to the address book
+        Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
+        addContact(newContact);
     }
 }
+
