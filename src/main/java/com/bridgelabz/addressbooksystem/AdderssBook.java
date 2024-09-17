@@ -115,5 +115,24 @@ public class AdderssBook {
         // If no contact is found
         System.out.println("Contact with name " + firstName + " not found.");
     }
+    public void deleteContact(String firstName) {
+        Contact contactToDelete = null;
+
+        // Search for the contact by name
+        for (Contact contact : contactList) {
+            if (contact.getFirstName().equalsIgnoreCase(firstName)) {
+                contactToDelete = contact;
+                break;
+            }
+        }
+
+        // Delete the contact if found
+        if (contactToDelete != null) {
+            contactList.remove(contactToDelete);
+            System.out.println("Contact deleted successfully.");
+        } else {
+            System.out.println("Contact with name " + firstName + " not found.");
+        }
+    }
 }
 
