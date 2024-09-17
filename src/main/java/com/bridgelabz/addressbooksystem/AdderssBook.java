@@ -52,5 +52,68 @@ public class AdderssBook {
         Contact newContact = new Contact(firstName, lastName, address, city, state, zip, phoneNumber, email);
         addContact(newContact);
     }
+    public void editContact(String firstName) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Search for the contact by name
+        for (Contact contact : contactList) {
+            if (contact.getFirstName().equalsIgnoreCase(firstName)) {
+                System.out.println("Editing Contact: " + contact.getFirstName() + " " + contact.getLastName());
+
+                System.out.print("Enter New First Name (or press Enter to keep current): ");
+                String newFirstName = scanner.nextLine();
+                if (!newFirstName.isEmpty()) {
+                    contact.setFirstName(newFirstName);
+                }
+
+                System.out.print("Enter New Last Name (or press Enter to keep current): ");
+                String newLastName = scanner.nextLine();
+                if (!newLastName.isEmpty()) {
+                    contact.setLastName(newLastName);
+                }
+
+                System.out.print("Enter New Address (or press Enter to keep current): ");
+                String newAddress = scanner.nextLine();
+                if (!newAddress.isEmpty()) {
+                    contact.setAddress(newAddress);
+                }
+
+                System.out.print("Enter New City (or press Enter to keep current): ");
+                String newCity = scanner.nextLine();
+                if (!newCity.isEmpty()) {
+                    contact.setCity(newCity);
+                }
+
+                System.out.print("Enter New State (or press Enter to keep current): ");
+                String newState = scanner.nextLine();
+                if (!newState.isEmpty()) {
+                    contact.setState(newState);
+                }
+
+                System.out.print("Enter New ZIP (or press Enter to keep current): ");
+                String newZip = scanner.nextLine();
+                if (!newZip.isEmpty()) {
+                    contact.setZip(newZip);
+                }
+
+                System.out.print("Enter New Phone Number (or press Enter to keep current): ");
+                String newPhoneNumber = scanner.nextLine();
+                if (!newPhoneNumber.isEmpty()) {
+                    contact.setPhoneNumber(newPhoneNumber);
+                }
+
+                System.out.print("Enter New Email (or press Enter to keep current): ");
+                String newEmail = scanner.nextLine();
+                if (!newEmail.isEmpty()) {
+                    contact.setEmail(newEmail);
+                }
+
+                System.out.println("Contact updated successfully!");
+                return;
+            }
+        }
+        // If no contact is found
+        System.out.println("Contact with name " + firstName + " not found.");
+    }
 }
 

@@ -10,18 +10,37 @@ public class AddressBookMain {
         String choice;
 
         do {
-            addressBook.addContactFromInput();
-
-            System.out.print("Do you want to add another contact? (yes/no): ");
+            System.out.println("Choose an option:");
+            System.out.println("1. Add New Contact");
+            System.out.println("2. Edit Existing Contact");
+            System.out.println("3. Display All Contacts");
+            System.out.println("4. Exit");
+            System.out.print("Enter your choice: ");
             choice = scanner.nextLine();
 
-        } while (choice.equalsIgnoreCase("yes"));
+            switch (choice) {
+                case "1":
+                    addressBook.addContactFromInput();
+                    break;
 
-        // Display all contacts
-        System.out.println("\nContacts in Address Book:");
-        addressBook.displayContacts();
+                case "2":
+                    System.out.print("Enter the first name of the contact to edit: ");
+                    String firstName = scanner.nextLine();
+                    addressBook.editContact(firstName);
+                    break;
 
-        scanner.close();
+                case "3":
+                    addressBook.displayContacts();
+                    break;
+
+                case "4":
+                    System.out.println("Exiting...");
+                    break;
+
+                default:
+                    System.out.println("Invalid choice. Please choose again.");
+            }
+        } while (!choice.equals("4"));
     }
 }
 
