@@ -20,7 +20,7 @@ public class AdderssBook {
     }
 
     // Method to take user input and add a new contact
-    public void addContactFromInput() {
+    public void addMultipleContactsFromInput() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.println("Enter Contact Details:");

@@ -21,7 +21,7 @@ public class AddressBookMain {
 
             switch (choice) {
                 case "1":
-                    addressBook.addContactFromInput();
+                    addressBook.addMultipleContactsFromInput();
                     break;
 
                 case "2":
